@@ -1,5 +1,8 @@
 class MoviesController < ApplicationController
-  # 
+  # create a authorize method to do a specific action (rolify)
+  # before_action :authorize_user , only: [:create , :destroy, :update]
+  before_action :authenticate_user!  , except: [:index , :show]
+
   def index
     @movies = Movie.all
   end
@@ -10,12 +13,11 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
-    p "----------------------------------------------"
   end
 
   def create 
     @movie = Movie.create(movie_params)
-    p "======================================"
+    authorize @movie
     if @movie.save
       redirect_to movies_path
     else
@@ -29,6 +31,7 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
+    authorize @movie
     if @movie.update(movie_params)
       redirect_to movies_path
     else
@@ -37,7 +40,8 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
+    @movie = Movie.find(params[:id])  
+    authorize @movie
     @movie.destroy
     redirect_to movies_path
   end
@@ -48,4 +52,14 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(:image , :name, :description, :release_date, :duration_hour , :duration_minute)
   end
 
+  # def authorize_user 
+  #   unless current_user.has_role?(:admin)
+  #     redirect_to root_path , alert: "You are not authorized to perform this action" 
+  #   end 
+  # end 
+
+  # def authorize_user 
+  #   movie = @movie || Movie
+  #   authorize movie
+  # end
 end

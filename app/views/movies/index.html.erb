@@ -5,7 +5,7 @@
       <div class="row">
         <% movie_slice.each do |m| %>
           <div class="col-md-3 "> <!-- Use col-md-3 for 4 cards in a row -->
-            <div class="card mb-4 box-shadow"  style="border: none; border-radius:20px">
+            <div class="card mb-4 box-shadow"  style="border: none; border-radius:20px ">
                 <!--  here we add a clickable card to see a show page  --> 
                 <%= link_to movie_path(m) , style: "text-decoration: none" do %>
                     <%= image_tag(m.image, class: "card-img-top rounded", style: "width: 100%; display: block;") %>

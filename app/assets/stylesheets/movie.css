@@ -9,4 +9,13 @@ body {
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: cover;
+    overflow-x: hidden;
 }
+
+
+body::-webkit-scrollbar {
+    width: 0px; 
+    background: transparent; 
+}
+
+

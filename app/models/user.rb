@@ -10,4 +10,11 @@ class User < ApplicationRecord
 
   role = %w{admin user}
 
+  def admin?
+    role == 'admin'
+  end
+  def user?
+    role == 'user'
+  end
+
 end

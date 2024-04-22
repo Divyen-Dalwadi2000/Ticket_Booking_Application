@@ -34,11 +34,13 @@ body {
   </head>
 
   <body class="text-dark">
-    <%= render 'layouts/nav' %>
+    <div class="body2">
+      <%= render 'layouts/nav' %>
 
-    <%flash.each do |type , msg| %>
-      <div class="alert alert-<%type%>"> <%= msg %> </div>
-    <% end %>
-    <%= yield %>
+      <%flash.each do |type , msg| %>
+        <div class="alert alert-<%type%>"> <%= msg %> </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
