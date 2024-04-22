@@ -36,7 +36,6 @@ body {
   <body class="text-dark">
     <%= render 'layouts/nav' %>
 
-
     <%flash.each do |type , msg| %>
       <div class="alert alert-<%type%>"> <%= msg %> </div>
     <% end %>
