@@ -1,0 +1,27 @@
+<div class="container d-flex justify-content-around mt-5 ">
+    <%= link_to 'Edit', edit_movie_path(@movie) , class:"btn btn-outline-warning " %>
+    <%= button_to 'Delete', movie_path(@movie) , method: :delete , data: { confirm: "Are You sure Want To delete ? "}  , class:"btn btn-outline-danger "%>
+</div>
+
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card mb-3" style="max-width: 940px; background-color: rgba(255, 230, 230, 0.4); border-radius:20px">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+            <%= image_tag(@movie.image , class: "card-img-top rounded", style: "width: 100%; display: block;") %>
+            </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <h1 class="card-title"><%= @movie.name %> </h1>
+                <h2 class="card-text"><%= @movie.description %></h2>
+                <h3 class="card-text"><%= @movie.release_date %></h3>
+                <h3 class="card-text"><%="#{ @movie.duration_hour}h #{ @movie.duration_minute}m "%> </h3>
+                <button class="btn btn-danger btn-lg mt-5">Book Ticket</button>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
