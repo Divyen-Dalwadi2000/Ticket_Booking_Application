@@ -1,14 +1,16 @@
 class MoviesController < ApplicationController
   # create a authorize method to do a specific action (rolify)
-  # before_action :authorize_user , only: [:create , :destroy, :update]
   before_action :authenticate_user!  , except: [:index , :show]
+  before_action :authorize_user , only: [:create , :destroy, :update]
 
   def index
     @movies = Movie.all
+    # @trips = policy_scope(Trip)
   end
 
   def show
     @movie = Movie.find(params[:id])
+    # authorize @movie
   end
 
   def new
@@ -58,8 +60,8 @@ class MoviesController < ApplicationController
   #   end 
   # end 
 
-  # def authorize_user 
-  #   movie = @movie || Movie
-  #   authorize movie
-  # end
+  def authorize_user 
+    movie = @movie || Movie
+    authorize movie
+  end
 end
