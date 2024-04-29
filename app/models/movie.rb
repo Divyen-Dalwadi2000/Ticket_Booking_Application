@@ -13,4 +13,3 @@ class Movie < ApplicationRecord
     validates :duration_hour , presence: true
     validates :duration_minute , presence: true
 end
-  
