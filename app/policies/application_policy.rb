@@ -25,7 +25,7 @@ class ApplicationPolicy
   end
 
   def update?
-    user.admin?
+     user.admin?
   end
 
   def edit?

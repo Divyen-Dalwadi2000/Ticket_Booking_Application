@@ -12,10 +12,10 @@ class MoviePolicy
     end
 
     def update?
-      user.admin? 
+      user.present? && user.admin? 
     end
 
     def destroy?
-      user.admin? 
+      user.present? &&  user.admin? 
     end
 end 

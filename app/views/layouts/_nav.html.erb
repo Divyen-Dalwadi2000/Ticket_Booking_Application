@@ -8,26 +8,47 @@
         <li class="nav-item active">
           <%= link_to 'Movies', movies_path , class:"nav-link"%>
         </li>
+      <!-- 👉 CINEMA -->
       <li class="nav-item">
-        <a class="nav-link" href="#">Theater</a>
+        <a class="nav-link" href="#">Cinema</a>
       </li>
+
+      <!-- 👉 SHOW -->
       <li class="nav-item">
         <a class="nav-link" href="#">Show</a>
       </li>
-        <!-- 🔴 Add condition to authorized person only can see on the home page  -->
-        <% if current_user&.admin? %>
-      <li class="nav-item">
-        <%= link_to  "Users" , users_path  ,class:"nav-link"%>
-      </li>
-      <li class="nav-item dropdown">
+
+      <!-- 👉 DAY -->
+       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Movie
+          Day
         </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to  "Create New Movie" , new_movie_path , class:"dropdown-item" %>
+              <%= link_to  "new" , new_day_path , class:"dropdown-item" %>
+              <%= link_to  "index" , days_path , class:"dropdown-item" %>
           </div>
-        <% end %>
       </li>
+
+        <!-- 🔴 Add condition to authorized person only can see on the home page  -->
+        <% if current_user&.admin? %>
+        <!-- 👉 USER -->
+          <li class="nav-item">
+            <%= link_to  "Users" , users_path  ,class:"nav-link"%>
+          </li>
+
+
+        <!-- 👉 MOVIE-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Movie
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to  "Create New Movie" , new_movie_path , class:"dropdown-item" %>
+            </div>
+          </li>
+        <% end %>
+
+
     </ul>
     <div class="ms-auto">
       <form class="form-inline my-2 my-lg-0 ">
