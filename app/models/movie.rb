@@ -1,11 +1,8 @@
 class Movie < ApplicationRecord
     has_one_attached :image
+    has_many :cinemas 
 
 
-
-
-
-    
     validates :image , presence: true
     validates :name , presence: true
     validates :description , presence: true

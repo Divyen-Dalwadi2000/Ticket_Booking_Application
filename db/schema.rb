@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_29_112013) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_29_121454) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_112013) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "cinemas", force: :cascade do |t|
+    t.string "cinema_name"
+    t.string "location"
+    t.integer "movie_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_cinemas_on_movie_id"
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -58,6 +67,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_112013) do
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["name"], name: "index_roles_on_name"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
+  end
+
+  create_table "shows", force: :cascade do |t|
+    t.string "show_type"
+    t.datetime "show_time"
+    t.integer "cinema_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cinema_id"], name: "index_shows_on_cinema_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,4 +101,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_112013) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cinemas", "movies"
+  add_foreign_key "shows", "cinemas"
 end

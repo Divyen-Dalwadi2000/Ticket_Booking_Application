@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   
   resources :movies
   resources :users 
-  resources :days
+  resources :cinemas
+  resources :shows
 end
