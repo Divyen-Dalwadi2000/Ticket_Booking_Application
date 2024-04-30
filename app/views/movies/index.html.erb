@@ -2,12 +2,12 @@
   <div class="carousel-inner">
     <% @movies.each_slice(4).with_index do |movie_slice, index| %>
       <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-        <div class="album py-5">
+        <div class="album py-2"> <!-- Reduce padding for smaller screens -->
           <div class="container">
             <div class="row">
               <% movie_slice.each do |m| %>
-                <div class="col-md-6 col-lg-3">
-                  <div class="card mb-4 box-shadow" style="border: none; border-radius:20px">
+                <div class="col-md-6 col-lg-3 col-sm-6"> <!-- Adjust column sizes for smaller screens -->
+                  <div class="card mb-2 mb-md-4 box-shadow" style="border: none; border-radius:20px"> <!-- Reduce margin for smaller screens -->
                     <%= link_to movie_path(m), style: "text-decoration: none" do %>
                       <%= image_tag(m.image, class: "card-img-top rounded", style: "width: 100%; display: block;") %>
                       <div class="card-body">

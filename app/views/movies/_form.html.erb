@@ -1,52 +1,66 @@
-<div class="container-fluid">
-    <div class="d-flex justify-content-center">
+<section class="vh-auto pt-2">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+          <%= image_tag 'speaker' , class:"img-fluid"  %>
+      </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <%= form_with model: @movie  do |f| %>
-            <div class="form-group">
-                <%= f.label :image %>
-                <%= f.file_field :image, class: "form-control" %>
+          <form>
+            <!-- Image input -->
+            <div class="form-outline mb-4">
+                <%= f.label :image ,class:"form-label" %>
+                <%= f.file_field :image, class: "form-control form-control-lg" %>
                 <%  @movie.errors.full_messages_for(:image).each do |m| %>  
                     <span style="color: red;"><%= m %></span>
                 <% end %>
             </div>
-            <div class="form-group">
-                
-                <%= f.label :name %>
-                <%= f.text_field :name, class: "form-control" %>
+            <!-- Name input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+                 <%= f.label :name ,class:"form-label"%>
+                <%= f.text_field :name, class: "form-control form-control-lg" %>
                 <%  @movie.errors.full_messages_for(:name).each do |m| %>
                     <span style="color: red;"><%= m %></span>
                 <% end %>
             </div>
-            <div class="form-group">
-                <%= f.label :description %>
-                <%= f.text_area :description, class: "form-control" %>
+            <!-- description input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+                 <%= f.label :description ,class:"form-label"%>
+                <%= f.text_area :description, class: "form-control form-control-lg" %>
                 <%  @movie.errors.full_messages_for(:description).each do |m| %>
                     <span style="color: red;"><%= m %></span>
                 <% end %>
             </div>
-            <div class="form-group">
-                <%= f.label :release_date %>
-                <%= f.date_field :release_date, class: "form-control" %>
+            <!-- release_date input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+                 <%= f.label :release_date ,class:"form-label"%>
+                <%= f.date_field :release_date, class: "form-control form-control-lg" %>           
                 <%  @movie.errors.full_messages_for(:release_date).each do |m| %>
                     <span style="color: red;"><%= m %></span>
                 <% end %>
             </div>
-            <div class="form-group">
-                <%= f.label :duration_hour %>
-                <%= f.number_field :duration_hour, class: "form-control" %>
+            <!-- duration_hour input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+                 <%= f.label :duration_hour ,class:"form-label"%>
+                <%= f.number_field :duration_hour, class: "form-control form-control-lg" %>
                 <%  @movie.errors.full_messages_for(:duration_hour).each do |m| %>
                     <span style="color: red;"><%= m %></span>
                 <% end %>
             </div>
-            <div class="form-group">
-                <%= f.label :duration_minute %>
-                <%= f.number_field :duration_minute, class: "form-control" %>
+            <!-- duration_minute input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+                 <%= f.label :duration_minute ,class:"form-label"%>
+                <%= f.number_field :duration_minute, class: "form-control form-control-lg" %>
                 <%  @movie.errors.full_messages_for(:duration_minute).each do |m| %>
                     <span style="color: red;"><%= m %></span>
                 <% end %>
             </div>
-            <div class="form-group mt-2">
-                <%= f.submit class: "form-control btn btn-primary" %>
+            <div class="text-center text-lg-start mt-4 pt-2">
+                <%= f.submit class: "btn btn-primary btn-lg" ,style:"padding-left: 2.5rem; padding-right: 2.5rem;"%>
             </div>
+          </form>
         <% end %>
+        </div>
     </div>
-</div>
+  </div>  
+</section>
