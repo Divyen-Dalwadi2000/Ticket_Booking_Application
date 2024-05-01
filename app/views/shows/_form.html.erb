@@ -1,0 +1,38 @@
+<section class="vh-auto pt-2">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+          <%#= image_tag 'speaker' , class:"img-fluid"  %>
+      </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <%= form_with model: @show  do |f| %>
+            <!-- Show TYpe  input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+                 <%= f.label :show_type ,class:"form-label"%>
+                <%= f.select :show_type, Show.show_types.keys , {} , class: "form-control form-control-lg" %>
+            </div>
+            <!-- show_time input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+                 <%= f.label :show_time ,class:"form-label"%>
+                <%#= f.datetime_field :show_time, class: "form-control form-control-lg", min: "#{Date.today}T09:00", max: "#{6.days.from_now.to_date}T12:30" %>
+                <%= f.datetime_field :show_time, class: "form-control form-control-lg" , min: Date.today , max: 6.days.from_now %>
+                <% if @show.errors.has_key?(:show_time) %>
+                    <div class="alert alert-danger">
+                        <%= @show.errors[:show_time].first %>
+                    </div>
+                <% end %>
+            </div>
+            <!-- Cinema input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+                 <%= f.label :cinema ,class:"form-label"%>
+                 <%= f.select :cinema_id , Cinema.all.map {|c| [c.cinema_name , c.id]} , {} , class:"form-control form-control-lg" %>
+            </div>
+            <div class="text-center text-lg-start mt-4 pt-2">
+                <%= f.submit class: "btn btn-primary btn-lg" ,style:"padding-left: 2.5rem; padding-right: 2.5rem;" %>
+            </div>
+            
+        <% end %>
+        </div>
+    </div>
+  </div>  
+</section>
