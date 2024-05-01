@@ -35,18 +35,22 @@
           <%= c.cinema_name %> - 
           <%= c.location %>
           <% if policy(c).update? %>  
-            <%= link_to 'Edit', edit_cinema_path(c)  , class:"btn btn-outline-warning"%>
-            <%= button_to 'Delete', cinema_path(c) , method: :delete  , class:"btn btn-outline-danger"%>  
+            <div class="btn-group m-2">
+              <%= link_to 'Edit', edit_cinema_path(c)  , class:"btn btn-outline-warning m-2"%>
+              <%= button_to 'Delete', cinema_path(c) , method: :delete  , class:"btn btn-outline-danger m-2"%>  
+            </div>
           <% end %>
         </div>
         <div class="col-sm-9 border ">
           <div class="row  row-cols-3 ">
-            <% 5.times do |i|%> 
-              <div class="col border border-3 border-success rounded-pill m-1">
-                <span>12:25 PM</span>
-                <br>
-                <span>Dolby 7.1</span>
-              </div>  
+            <% c.shows.each do |s|%> 
+              <%#= link_to  path %>
+                  <div class="col btn btn-outline-dark border border-3 border-success m-1 ">
+                        <span><%= s.show_time.strftime("%I : %M %p") %></span>
+                        <br>
+                        <span><%= s.show_type %></span>
+                  </div>  
+                <%# end %>
             <% end %>
           </div>
         </div>
@@ -54,7 +58,5 @@
     <% end %>
 
   </div>
-  
-
 </div>
           
