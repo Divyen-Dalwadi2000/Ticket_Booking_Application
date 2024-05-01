@@ -18,9 +18,8 @@
                 <h2 class="card-text"><%= @movie.description %></h2>
                 <h3 class="card-text"><%= @movie.release_date %></h3>
                 <h3 class="card-text"><%="#{ @movie.duration_hour}h #{ @movie.duration_minute}m "%> </h3>
-                <%= link_to 'Book Ticket', cinemas_path , class:"btn btn-danger btn-lg mt-5" %>
+                <%= link_to 'Book Ticket', cinemas_path(name: @movie.name, description: @movie.description)  , class:"btn btn-danger btn-lg mt-5" %>
             </div>
-            
             </div>
         </div>
     </div>

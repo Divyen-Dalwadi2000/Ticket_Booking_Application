@@ -1,3 +1,4 @@
+<% if @movies %>
 <div id="movieCarousel" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <% @movies.each_slice(4).with_index do |movie_slice, index| %>
@@ -33,5 +34,8 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+<% else %>
+  <p>No movies found.</p>
+<% end %>
 
-<%= render 'footer' %>
+<%#= render 'footer' %>

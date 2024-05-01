@@ -1,4 +1,5 @@
 <div class="container-fluid bg-light">
+  <!-- FOR MOVIE HEADING AND DESCRIPTION -->
   <div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-2">
@@ -10,9 +11,8 @@
                 <h1>
                     <div class="cinema-name-wrapper">
                     <meta content="https://in.bookmyshow.com/buytickets/-ahmedabad/movie-ahd-ET00343222" itemprop="url">
-                    <a href="/ahmedabad/movies/ruslaan/ET00343222" class="">
-                        Ruslaan - Hindi
-                    </a>
+                          <%= params[:name]  %> -
+                          <%= params[:description]  %>
                     </div>
                 </h1>
                 </div>
@@ -22,26 +22,35 @@
       </div>
     </div>
   </div>
+  <!-- DATES -->
+
+  <!-- CINMEAS AND SHOWS -->
 
 
+  <div class="container text-center ">
 
+    <% @cinemas.each do |c| %>
+      <div class="row border border-2 ">
+        <div class="col-sm-3">
+          <%= c.cinema_name %> - 
+          <%= c.location %>
+        </div>
+        <div class="col-sm-9 border border-2">
+          <div class="row  row-cols-3 border border-2 border-danger ">
+            <% 5.times do |i|%> 
+              <div class="col border border-3 border-success rounded-pill m-1">
+                <span>12:25 PM</span>
+                <br>
+                <span>Dolby 7.1</span>
+              </div>  
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </div>
   
+
 </div>
           
