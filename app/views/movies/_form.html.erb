@@ -34,7 +34,7 @@
             <!-- release_date input -->
             <div data-mdb-input-init class="form-outline mb-3">
                  <%= f.label :release_date ,class:"form-label"%>
-                <%= f.date_field :release_date, class: "form-control form-control-lg" %>           
+                <%= f.date_field :release_date, class: "form-control form-control-lg" , min: Date.today , selected: Date.today%>           
                 <%  @movie.errors.full_messages_for(:release_date).each do |m| %>
                     <span style="color: red;"><%= m %></span>
                 <% end %>
