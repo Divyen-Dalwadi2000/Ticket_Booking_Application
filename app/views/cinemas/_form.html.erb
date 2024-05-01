@@ -1,0 +1,32 @@
+<section class="vh-auto pt-2">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+          <%= image_tag 'speaker' , class:"img-fluid"  %>
+      </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <%= form_with model: @cinema  do |f| %>
+            <!-- Cinema Name input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+                 <%= f.label :cinema_name ,class:"form-label"%>
+                <%= f.text_field :cinema_name, class: "form-control form-control-lg" %>
+            </div>
+            <!-- Location input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+                 <%= f.label :location ,class:"form-label"%>
+                <%= f.text_area :location, class: "form-control form-control-lg" %>
+            </div>
+            <!-- Movie input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+                 <%= f.label :release_date ,class:"form-label"%>
+                 <%= f.select :movie_id , Movie.all.map {|m| [m.name , m.id]} , {} , class:"form-control form-control-lg" %>
+            </div>
+            <div class="text-center text-lg-start mt-4 pt-2">
+                <%= f.submit class: "btn btn-primary btn-lg" ,style:"padding-left: 2.5rem; padding-right: 2.5rem;" %>
+            </div>
+            
+            <% end %>
+        </div>
+    </div>
+  </div>  
+</section>

@@ -1,19 +1,2 @@
-<h1>Cinema#new</h1>
-<p>Find me in app/views/cinema/new.html.erb</p>
-
-
-
-<%= form_with model: @cinema do |f| %>
-    <div class="form-group">
-        <%= f.text_field :cinema_name ,class:"form-control"%>
-    </div>
-    <div class="form-group">
-        <%= f.text_field :location ,class:"form-control"%>
-    </div>
-    <div class="form-group">
-        <%= f.select :movie_id , Movie.all.map {|m| [m.name , m.id]} , {} , class:"form-control" %>
-    </div>
-    <div class="form-group">
-        <%= f.submit %>
-    </div>
-<% end %>
+<div class="d-flex justify-content-center mt-2"> <h3 class="fw-bold">Cinema New PAGE</h3></div>
+<%= render 'form' %>

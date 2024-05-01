@@ -1,4 +1,4 @@
-<div class="container-fluid bg-light">
+<div class="container-fluid ">
   <!-- FOR MOVIE HEADING AND DESCRIPTION -->
   <div class="container">
     <div class="row">
@@ -30,13 +30,17 @@
   <div class="container text-center ">
 
     <% @cinemas.each do |c| %>
-      <div class="row border border-2 ">
+      <div class="row border border-1 border-black rounded">
         <div class="col-sm-3">
           <%= c.cinema_name %> - 
           <%= c.location %>
+          <% if policy(c).update? %>  
+            <%= link_to 'Edit', edit_cinema_path(c)  , class:"btn btn-outline-warning"%>
+            <%= button_to 'Delete', cinema_path(c) , method: :delete  , class:"btn btn-outline-danger"%>  
+          <% end %>
         </div>
-        <div class="col-sm-9 border border-2">
-          <div class="row  row-cols-3 border border-2 border-danger ">
+        <div class="col-sm-9 border ">
+          <div class="row  row-cols-3 ">
             <% 5.times do |i|%> 
               <div class="col border border-3 border-success rounded-pill m-1">
                 <span>12:25 PM</span>

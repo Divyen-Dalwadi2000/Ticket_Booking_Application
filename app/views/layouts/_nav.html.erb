@@ -13,6 +13,8 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Show</a>
       </li>
+        <!-- 🔴 Add condition to authorized person only can see on the home page  -->
+        <% if current_user&.admin? %>
 
       <!-- 👉 CINEMA -->
        <li class="nav-item dropdown">
@@ -25,8 +27,6 @@
           </div>
       </li>
 
-        <!-- 🔴 Add condition to authorized person only can see on the home page  -->
-        <% if current_user&.admin? %>
         <!-- 👉 USER -->
           <li class="nav-item">
             <%= link_to  "Users" , users_path  ,class:"nav-link"%>
