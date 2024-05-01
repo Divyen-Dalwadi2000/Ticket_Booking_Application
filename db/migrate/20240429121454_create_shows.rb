@@ -1,7 +1,7 @@
 class CreateShows < ActiveRecord::Migration[7.1]
   def change
     create_table :shows do |t|
-      t.string :show_type
+      t.integer :show_type
       t.datetime :show_time
       t.references :cinema, null: false, foreign_key: true
 

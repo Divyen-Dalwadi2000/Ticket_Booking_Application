@@ -2,10 +2,10 @@
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
-          <%= image_tag 'speaker' , class:"img-fluid"  %>
+          <%#= image_tag 'speaker' , class:"img-fluid"  %>
       </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <%= form_with model: @cinema  do |f| %>
+        <%= form_with model: @show  do |f| %>
             <!-- Cinema Name input -->
             <div data-mdb-input-init class="form-outline mb-3">
                  <%= f.label :cinema_name ,class:"form-label"%>

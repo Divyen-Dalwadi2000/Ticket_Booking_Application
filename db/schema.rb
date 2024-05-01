@@ -70,7 +70,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_121454) do
   end
 
   create_table "shows", force: :cascade do |t|
-    t.string "show_type"
+    t.integer "show_type"
     t.datetime "show_time"
     t.integer "cinema_id", null: false
     t.datetime "created_at", null: false
